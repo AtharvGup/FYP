@@ -1,0 +1,51 @@
+Dataset: taowu_schaefer100,
+Model: GCN
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0029821829617720404, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 0.00023183179636346294, 'print_epoch_interval': 5, 'max_time': 12, 'threshold': 0.3, 'edge_ratio': 0.0, 'node_feat_transform': 'pearson'}
+
+net_params={'L': 3, 'hidden_dim': 256, 'out_dim': 128, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.9, 'batch_norm': True, 'self_loop': False, 'edge_feat': True, 'node_num': 100, 'device': device(type='cpu'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 100, 'edge_dim': 1, 'n_classes': 2, 'total_param': 203810}
+
+GCNNet(
+  (embedding_h): Linear(in_features=100, out_features=256, bias=True)
+  (embedding_e): Linear(in_features=1, out_features=256, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0-1): 2 x GCNLayer(in_channels=256, out_channels=256, residual=True)
+    (2): GCNLayer(in_channels=256, out_channels=128, residual=False)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Linear(in_features=64, out_features=32, bias=True)
+      (2): Linear(in_features=32, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 203810
+
+ edge_num: 3848
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 67.5000 with s.d. 27.5000
+TRAIN ACCURACY averaged: 100.0000 with s.d. 0.0000
+VAL ACCURACY averaged: 55.0000 with s.d. 26.9258
+
+
+    TRAIN LOSS averaged: 0.0002 with s.d. 0.0001
+VAL LOSS averaged: 2.3410 with s.d. 1.7845
+
+
+    Average Convergence Time (Epochs): 332.6000 with s.d. 21.4346
+Total Time Taken: 0.2556 hrs
+Average Time Per Epoch: 0.2572 s
+
+
+All Splits Test Accuracies: [1.0, 0.25, 0.75, 1.0, 0.5, 0.5, 1.0, 0.75, 0.75, 0.25] 
+                
+All Splits Train Accuracies: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0] 
+All Splits Val Accuracies: [0.75, 0.75, 0.25, 1.0, 0.5, 0.25, 0.75, 0.75, 0.25, 0.25] 
+All Splits Train Loss: [8.775481546763331e-05, 0.00014856614143354818, 0.0003866391343763098, 0.00014788559929002076, 0.00027482633595354855, 8.128315312205814e-05, 9.253103780793026e-05, 9.426855103811249e-05, 0.0003785379230976105, 5.0281695621379185e-05], 
+                
+All Splits Val Loss: [0.3013635277748108, 0.6306668519973755, 3.5924267768859863, 0.03012891300022602, 2.5143959522247314, 5.339940547943115, 1.006569266319275, 1.847368836402893, 3.4416451454162598, 4.705667495727539]

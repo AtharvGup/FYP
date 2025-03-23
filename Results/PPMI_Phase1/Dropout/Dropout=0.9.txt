@@ -1,0 +1,51 @@
+Dataset: ppmi_schaefer100,
+Model: GCN
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.00019543753319312967, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 9.658823787285109e-05, 'print_epoch_interval': 5, 'max_time': 12, 'threshold': 0.3, 'edge_ratio': 0.0, 'node_feat_transform': 'pearson'}
+
+net_params={'L': 2, 'hidden_dim': 64, 'out_dim': 128, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.9, 'batch_norm': True, 'self_loop': False, 'edge_feat': True, 'node_num': 100, 'device': device(type='cpu'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 100, 'edge_dim': 1, 'n_classes': 4, 'total_param': 30308}
+
+GCNNet(
+  (embedding_h): Linear(in_features=100, out_features=64, bias=True)
+  (embedding_e): Linear(in_features=1, out_features=64, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0): GCNLayer(in_channels=64, out_channels=64, residual=True)
+    (1): GCNLayer(in_channels=64, out_channels=128, residual=False)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Linear(in_features=64, out_features=32, bias=True)
+      (2): Linear(in_features=32, out_features=4, bias=True)
+    )
+  )
+)
+
+Total Parameters: 30308
+
+ edge_num: 2792
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 55.4762 with s.d. 7.5330
+TRAIN ACCURACY averaged: 94.2522 with s.d. 4.2619
+VAL ACCURACY averaged: 49.5238 with s.d. 9.0851
+
+
+    TRAIN LOSS averaged: 0.2510 with s.d. 0.1006
+VAL LOSS averaged: 1.2768 with s.d. 0.5679
+
+
+    Average Convergence Time (Epochs): 241.1000 with s.d. 19.8567
+Total Time Taken: 0.0773 hrs
+Average Time Per Epoch: 0.1038 s
+
+
+All Splits Test Accuracies: [0.6190476190476191, 0.5714285714285714, 0.5714285714285714, 0.6190476190476191, 0.6190476190476191, 0.5714285714285714, 0.38095238095238093, 0.6190476190476191, 0.47619047619047616, 0.5] 
+                
+All Splits Train Accuracies: [0.9880239520958084, 0.8982035928143712, 1.0, 0.9700598802395209, 0.9341317365269461, 0.9640718562874252, 0.9101796407185628, 0.8802395209580839, 0.8922155688622755, 0.9880952380952381] 
+All Splits Val Accuracies: [0.38095238095238093, 0.5714285714285714, 0.6666666666666666, 0.5714285714285714, 0.47619047619047616, 0.47619047619047616, 0.5238095238095238, 0.3333333333333333, 0.47619047619047616, 0.47619047619047616] 
+All Splits Train Loss: [0.19234486876262558, 0.3891838904884126, 0.06565848655170864, 0.19928810207380188, 0.22804775668515098, 0.1838475987315178, 0.2692665027247535, 0.39204195969634587, 0.3740682436360253, 0.21599292423990038], 
+                
+All Splits Val Loss: [0.9484229059889913, 1.3217832744121552, 0.5421813782304525, 0.9104644763283432, 1.3467692136764526, 0.6581706174183637, 0.8584535261616111, 2.15379935503006, 2.1205055713653564, 1.9071028232574463]

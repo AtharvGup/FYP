@@ -1,0 +1,50 @@
+Dataset: neurocon_schaefer100,
+Model: GCN
+
+params={'seed': 41, 'epochs': 1000, 'batch_size': 20, 'init_lr': 0.0042530394637953686, 'lr_reduce_factor': 0.5, 'lr_schedule_patience': 25, 'min_lr': 1e-06, 'weight_decay': 1.499012598690325e-05, 'print_epoch_interval': 5, 'max_time': 12, 'threshold': 0.3, 'edge_ratio': 0.0, 'node_feat_transform': 'pearson'}
+
+net_params={'L': 4, 'hidden_dim': 128, 'out_dim': 128, 'residual': True, 'readout': 'mean', 'in_feat_dropout': 0.0, 'dropout': 0.9, 'batch_norm': True, 'self_loop': False, 'edge_feat': True, 'node_num': 100, 'device': device(type='cpu'), 'gpu_id': 0, 'batch_size': 20, 'in_dim': 100, 'edge_dim': 1, 'n_classes': 2, 'total_param': 91682}
+
+GCNNet(
+  (embedding_h): Linear(in_features=100, out_features=128, bias=True)
+  (embedding_e): Linear(in_features=1, out_features=128, bias=True)
+  (in_feat_dropout): Dropout(p=0.0, inplace=False)
+  (layers): ModuleList(
+    (0-3): 4 x GCNLayer(in_channels=128, out_channels=128, residual=True)
+  )
+  (MLP_layer): MLPReadout(
+    (FC_layers): ModuleList(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Linear(in_features=64, out_features=32, bias=True)
+      (2): Linear(in_features=32, out_features=2, bias=True)
+    )
+  )
+)
+
+Total Parameters: 91682
+
+ edge_num: 1782
+
+
+    FINAL RESULTS
+TEST ACCURACY averaged: 59.0000 with s.d. 13.3791
+TRAIN ACCURACY averaged: 75.0000 with s.d. 15.3093
+VAL ACCURACY averaged: 67.5000 with s.d. 12.8938
+
+
+    TRAIN LOSS averaged: 0.4748 with s.d. 0.2484
+VAL LOSS averaged: 0.5922 with s.d. 0.2091
+
+
+    Average Convergence Time (Epochs): 382.3000 with s.d. 62.4004
+Total Time Taken: 0.0670 hrs
+Average Time Per Epoch: 0.0491 s
+
+
+All Splits Test Accuracies: [0.4, 0.5, 0.5, 0.5, 0.5, 0.5, 0.75, 0.75, 0.75, 0.75] 
+                
+All Splits Train Accuracies: [0.9375, 1.0, 0.65625, 0.65625, 0.65625, 1.0, 0.71875, 0.625, 0.625, 0.625] 
+All Splits Val Accuracies: [0.75, 1.0, 0.6, 0.6, 0.6, 0.8, 0.6, 0.6, 0.6, 0.6] 
+All Splits Train Loss: [0.386342316865921, 0.0005214768025325611, 0.6253717541694641, 0.5846744477748871, 0.6433725655078888, 0.001025620600557886, 0.5856076180934906, 0.6074790060520172, 0.6696271896362305, 0.6439144015312195], 
+                
+All Splits Val Loss: [0.5919567346572876, 0.0717397928237915, 0.6929224729537964, 0.7394117116928101, 0.6893894672393799, 0.3227609395980835, 0.7105171084403992, 0.7456498146057129, 0.6820900440216064, 0.6750966310501099]
