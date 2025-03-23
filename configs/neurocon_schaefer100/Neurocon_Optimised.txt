@@ -1,0 +1,1 @@
+Best hyperparameters: {'init_lr': 0.0042530394637953686, 'weight_decay': 1.499012598690325e-05, 'hidden_dim': 128, 'dropout': 0.4, 'L': 4}
